@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "theEventCenter"
+  "defaultProject": "theEventCenter",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
