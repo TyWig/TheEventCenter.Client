@@ -1,5 +1,26 @@
-<mat-card>
+<mat-card style="max-width: 500px">
+  <mat-card-title>
+    Sign In
+  </mat-card-title>
   <mat-card-content>
-    <h1>Testing boiiiii</h1>
+    <form [formGroup]="form" class="login-form">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Email" formControlName="username" autocomplete="username email">
+        <mat-error *ngIf="form.controls['username'].hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="form.controls['username'].hasError('email')">
+          Please enter email address
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Password" formControlName="password" type="password" autocomplete="current-password">
+        <mat-error *ngIf="form.controls['username'].hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="login()" color="primary">Login</button>
+    <a mat-button routerLink="/register" style="margin-left: 15px">Create account</a>
   </mat-card-content>
 </mat-card>

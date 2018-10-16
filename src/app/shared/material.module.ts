@@ -32,6 +32,7 @@ import {
   MatStepperModule,
   MatTreeModule
 } from '@angular/material';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -63,6 +64,8 @@ import {
     MatRadioModule,
     MatDividerModule,
     MatProgressBarModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   exports: [
     MatDialogModule,
@@ -95,7 +98,9 @@ import {
     MatDividerModule,
     MatStepperModule,
     MatTreeModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    ReactiveFormsModule,
+    FormsModule,
   ]
 })
 export class MaterialModule { }

@@ -8,12 +8,14 @@ import { MaterialModule } from './shared/material.module';
 import { LoginComponent } from './login/login.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RootStoreModule } from './store/root-store.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
+    RootStoreModule,
     BrowserAnimationsModule,
     BrowserModule,
   ],
