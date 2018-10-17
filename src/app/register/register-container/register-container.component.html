@@ -1,3 +1,10 @@
-<p>
-  register-container works!
-</p>
+<mat-card class="register-card">
+    <mat-card-title>
+    <h3>Create an Account</h3>
+    </mat-card-title>
+    <mat-card-content>
+      <app-register-form #registerForm></app-register-form>
+      <button mat-raised-button (click)="register()"color="primary">Register</button>
+    </mat-card-content>
+</mat-card>
+
