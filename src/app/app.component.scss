@@ -1,9 +1,62 @@
-.example-fill-remaining-space {
-  /* This fills the remaining space, by using flexbox. 
-     Every toolbar row uses a flexbox row layout. */
+:host {
+  height: 100%;
+}
+
+.flex-fill-space {
   flex: 1 1 auto;
 }
 
-.app-toolbar {
-  margin-bottom: 50px;
+.toolbar-row {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+mat-sidenav-container {
+  height: 100%;
+
+  .wrapper {
+    z-index: -2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-y: auto;
+
+    .tool-bar {
+      position: fixed;
+      width: 100%;
+      z-index: 1;
+      flex: 0 0 auto;
+    }
+
+    .content {
+      flex: 1 0 auto;
+      position: relative;
+      z-index: 1;
+      border-radius: 10px !important;
+    }
+
+    .footer {
+      flex: 0 0 auto;
+      padding: 0 15px;
+      text-align: center;
+      z-index: 1;
+
+      // .row {
+      //   padding: 10px 0;
+
+      //   @media (min-width: map-get($grid-breakpoints, sm)) {
+      //   }
+      // }
+    }
+  }
+}
+
+mat-sidenav {
+  width: 250px;
+
+  .mat-nav-list {
+    padding-top: 0;
+  }
 }
