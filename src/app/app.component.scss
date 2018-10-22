@@ -23,8 +23,9 @@ mat-sidenav-container {
     position: relative;
     overflow-y: auto;
 
-    .tool-bar {
-      position: fixed;
+    .toolbar {
+      margin-bottom: 8vh;
+      // position: fixed;
       width: 100%;
       z-index: 1;
       flex: 0 0 auto;
