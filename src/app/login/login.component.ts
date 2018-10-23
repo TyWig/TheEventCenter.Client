@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { Login } from '../store/user-store/user-store.actions';
+import { validateAllFormFields } from '../shared/form-utils';
 
 @Component({
   selector: 'app-login',
@@ -29,9 +31,12 @@ export class LoginComponent implements OnInit {
 
   login() {
     const valid = this.form.valid;
-    console.log(`Is valid: ${valid}`);
+    console.log(valid);
     if (valid) {
-      // this.store.dispatch(new UserLogin());
+      const value = this.form.value;
+      this.store.dispatch(new Login(value));
+    } else {
+      validateAllFormFields(this.form);
     }
   }
 

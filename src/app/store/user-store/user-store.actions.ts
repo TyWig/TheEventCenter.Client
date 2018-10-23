@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { LoginResponse } from 'src/app/shared/models/login-response';
 
 export enum UserActionTypes {
   LOGIN = '[User] Login',
@@ -12,10 +13,11 @@ export class Login implements Action {
 }
 export class LoginFail implements Action {
   readonly type = UserActionTypes.LOGIN_FAIL;
+  constructor(public paylod: any) { }
 }
 export class LoginSuccess implements Action {
   readonly type = UserActionTypes.LOGIN_SUCCESS;
-  constructor(public payload: any) { }
+  constructor(public payload: LoginResponse) { }
 }
 
 export type UserStoreActions = Login

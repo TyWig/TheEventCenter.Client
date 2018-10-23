@@ -9,7 +9,8 @@ export function reducer(state = initialState, action: UserStoreActions): State {
       return { ...state };
     case UserActionTypes.LOGIN_SUCCESS:
       return {
-        ...state
+        ...state,
+        isAuthenticated: true
       };
     case UserActionTypes.LOGIN_SUCCESS:
       return { ...state };

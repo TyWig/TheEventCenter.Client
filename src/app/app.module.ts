@@ -11,6 +11,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RootStoreModule } from './store/root-store.module';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   imports: [
@@ -20,6 +22,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     RootStoreModule,
     BrowserAnimationsModule,
     BrowserModule,
+    HttpClientModule,
+    CoreModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
