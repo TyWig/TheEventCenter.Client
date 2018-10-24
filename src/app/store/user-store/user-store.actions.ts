@@ -2,24 +2,24 @@ import { Action } from '@ngrx/store';
 import { LoginResponse } from 'src/app/shared/models/login-response';
 
 export enum UserActionTypes {
-  LOGIN = '[User] Login',
-  LOGIN_SUCCESS = '[User] Login Success',
-  LOGIN_FAIL = '[User] Login Fail',
+  LOAD_USER = '[User] Load User',
+  LOAD_USER_SUCCESS = '[User] Load User Success',
+  LOAD_USER_FAIL = '[User] Load User Fail',
 }
 
-export class Login implements Action {
-  readonly type = UserActionTypes.LOGIN;
+export class LoadUser implements Action {
+  readonly type = UserActionTypes.LOAD_USER;
   constructor(public payload: any) { }
 }
-export class LoginFail implements Action {
-  readonly type = UserActionTypes.LOGIN_FAIL;
-  constructor(public paylod: any) { }
+export class LoadUserFail implements Action {
+  readonly type = UserActionTypes.LOAD_USER_FAIL;
+  constructor(public payload: any) { }
 }
-export class LoginSuccess implements Action {
-  readonly type = UserActionTypes.LOGIN_SUCCESS;
+export class LoadUserSuccess implements Action {
+  readonly type = UserActionTypes.LOAD_USER_SUCCESS;
   constructor(public payload: LoginResponse) { }
 }
 
-export type UserStoreActions = Login
-| LoginFail
-| LoginSuccess;
+export type UserStoreActions = LoadUser
+| LoadUserFail
+| LoadUserSuccess;

@@ -5,11 +5,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../environments/environment';
 import { UserStoreModule } from './user-store';
+import { AuthStoreModule } from './auth-store';
 
 @NgModule({
   imports: [
     CommonModule,
     UserStoreModule,
+    AuthStoreModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({

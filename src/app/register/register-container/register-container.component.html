@@ -3,8 +3,7 @@
     <h3>Create an Account</h3>
     </mat-card-title>
     <mat-card-content>
-      <app-register-form #registerForm></app-register-form>
-      <button mat-raised-button (click)="register()"color="primary">Register</button>
+      <app-register-form #registerForm [errors]="registerErrors$ | async"></app-register-form>
+      <button mat-raised-button class="mt-3" (click)="register()"color="primary">Register</button>
     </mat-card-content>
 </mat-card>
-

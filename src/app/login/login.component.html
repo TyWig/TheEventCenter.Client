@@ -3,7 +3,7 @@
     Sign In
   </mat-card-title>
   <mat-card-content>
-    <form [formGroup]="form">
+    <form [formGroup]="form" class="mb-3">
       <mat-form-field class="full-width">
         <input matInput placeholder="Email" formControlName="username" autocomplete="username email">
         <mat-error *ngIf="form.controls['username'].hasError('required')">
@@ -19,6 +19,9 @@
           Password is <strong>required</strong>
         </mat-error>
       </mat-form-field>
+      <div *ngIf="loginError$ | async as error">
+        <mat-error>{{error[0]}}</mat-error>
+      </div>
     </form>
     <button mat-raised-button (click)="login()" color="primary">Login</button>
     <a mat-button routerLink="/register" style="margin-left: 15px">Create account</a>

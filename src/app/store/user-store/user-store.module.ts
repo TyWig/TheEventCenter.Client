@@ -9,7 +9,6 @@ import { CoreModule } from 'src/app/core/core.module';
 @NgModule({
   imports: [
     CommonModule,
-    CoreModule,
     StoreModule.forFeature('user', fromUserStore.reducer),
     EffectsModule.forFeature([UserStoreEffects])
   ],

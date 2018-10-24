@@ -14,12 +14,17 @@
     <div class="toolbar">
       <mat-toolbar color="primary">
         <span>The Event Center</span>
+        <button mat-button routerLink="/">Home</button>
         <!-- <button mat-button routerLink="/">Home</button> -->
         <!-- This fills the remaining space of the current row -->
         <span class="flex-fill-space"></span>
         <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
           <mat-icon>menu</mat-icon>
         </button>
+        <div *ngIf="!isAuthenticated">
+          <button mat-button routerLink="/login">Login</button>
+        </div>
+       
         <!-- <button mat-button [matMenuTriggerFor]="menu">Menu</button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item>Item 1</button>

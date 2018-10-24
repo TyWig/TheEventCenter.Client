@@ -3,17 +3,21 @@ import { UserActionTypes, UserStoreActions } from './user-store.actions';
 import { initialState, State } from './state';
 
 export function reducer(state = initialState, action: UserStoreActions): State {
+  console.log(state, action);
   switch (action.type) {
 
-    case UserActionTypes.LOGIN:
-      return { ...state };
-    case UserActionTypes.LOGIN_SUCCESS:
+    case UserActionTypes.LOAD_USER:
+      return {
+        ...state
+      };
+    case UserActionTypes.LOAD_USER_SUCCESS:
       return {
         ...state,
-        isAuthenticated: true
       };
-    case UserActionTypes.LOGIN_SUCCESS:
-      return { ...state };
+    case UserActionTypes.LOAD_USER_FAIL:
+      return {
+        ...state,
+      };
     default:
       return state;
   }

@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { UserActionTypes, Login, LoginFail } from './user-store.actions';
+import { UserActionTypes, LoadUserFail, LoadUser } from './user-store.actions';
 import { HttpClient } from '@angular/common/http';
 import { switchMap, catchError, map, tap } from 'rxjs/operators';
 import { environment as env } from '../../../environments/environment';
 import { of } from 'rxjs';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { LoginResponse } from 'src/app/shared/models/login-response';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class UserStoreEffects {
@@ -15,22 +16,18 @@ export class UserStoreEffects {
     private actions$: Actions,
     private http: HttpClient,
     private authService: AuthService,
+    private router: Router,
   ) {
   }
 
   @Effect()
-  login$ = this.actions$.pipe(
-    ofType(UserActionTypes.LOGIN),
-    switchMap((action: Login) =>
-      this.http.post(env.baseApiUrl + '/auth/login', action.payload).pipe(
-        map(result => ({type: UserActionTypes.LOGIN_SUCCESS, payload: result})),
-        tap(result => {
-          const loginResponse = result.payload as LoginResponse;
-          this.authService.login(loginResponse);
-        }),
-        catchError(err => of(new LoginFail(err)))
+  loadUser$ = this.actions$.pipe(
+    ofType(UserActionTypes.LOAD_USER),
+    switchMap((action: LoadUser) =>
+      this.http.get(env.baseApiUrl + '/user/profile').pipe(
+        map(result => ({type: UserActionTypes.LOAD_USER_SUCCESS, payload: result})),
+        catchError(err => of(new LoadUserFail(err)))
       )
     )
   );
-
 }
