@@ -6,12 +6,6 @@
   flex: 1 1 auto;
 }
 
-.toolbar-row {
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-}
-
 mat-sidenav-container {
   height: 100%;
 
@@ -24,8 +18,7 @@ mat-sidenav-container {
     overflow-y: auto;
 
     .toolbar {
-      margin-bottom: 8vh;
-      // position: fixed;
+      margin-bottom: 4vh;
       width: 100%;
       z-index: 1;
       flex: 0 0 auto;
@@ -40,16 +33,10 @@ mat-sidenav-container {
 
     .footer {
       flex: 0 0 auto;
-      padding: 0 15px;
-      text-align: center;
-      z-index: 1;
-
-      // .row {
-      //   padding: 10px 0;
-
-      //   @media (min-width: map-get($grid-breakpoints, sm)) {
-      //   }
-      // }
+      // height: 30px;
+      // padding: 0 15px;
+      // text-align: center;
+      // z-index: 1;
     }
   }
 }
