@@ -1,36 +1,12 @@
-<mat-card style="min-width: 40vw">
+<mat-card class="col-md-12 mb-2 test" *ngFor="let item of [1,2,3,4,5,6]">
   <mat-card-title>
-    <h3>Landing Boi</h3>
+    <h3>Landing</h3>
   </mat-card-title>
   <mat-card-content>
     <mat-grid-list class="admin-menu-grid" [cols]="2" rowHeight="50px">
       <mat-grid-tile>
-        <button mat-raised-button color="primary">Testing Boii</button>
+        <button mat-raised-button color="primary">Boiii</button>
       </mat-grid-tile>
     </mat-grid-list>
   </mat-card-content>
 </mat-card>
-<!-- <div class="background">
-    <div class="gradient">
-        <h1>The Clubhouse Event Center</h1>
-        <mat-card *ngFor="let item of [1]" style="height: 400px; max-width: 300px;">
-          <mat-card-content>
-            Testing
-          </mat-card-content>
-        </mat-card>
-        <div class="actions">
-          <a [ngClass]="animateOnRouteEnter"
-             mat-raised-button class="actions-main" color="primary" routerLink="../features">
-            Features
-          </a>
-          <a [ngClass]="animateOnRouteEnter"
-             mat-raised-button class="actions-main" color="accent" routerLink="../values">
-            Api Values
-          </a>
-          <a mat-raised-button class="actions-main" color="warn" routerLink="../settings"
-             [ngClass]="animateOnRouteEnter">
-            <i class="fa fa-gear"></i> Change Theme
-          </a>
-      </div>
-    </div>
-  </div> -->
