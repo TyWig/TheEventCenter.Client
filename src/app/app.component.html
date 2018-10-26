@@ -1,7 +1,7 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav mode="cover" style="background-color: rgb(245, 231, 206);">
+  <mat-sidenav #sidenav mode="cover" style="background: rgba(255,255,255,0.95);">
     <mat-toolbar color="primary">
-      <span>Hello, {{(userState$ | async)?.name}}</span>
+      <span>Welcome, {{(userState$ | async)?.name}}</span>
     </mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/login">Login</a>

@@ -1,4 +1,9 @@
-.test {
-  min-width: 250px;
-  max-width: 1000px;
+.landing-card {
+  max-width: 450px;
+  background: rgba(255,255,255,0.4)
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
 }
