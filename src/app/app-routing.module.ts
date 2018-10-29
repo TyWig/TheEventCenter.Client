@@ -13,6 +13,10 @@ const routes: Routes = [
     loadChildren: 'src/app/register/register.module#RegisterModule',
   },
   {
+    path: 'events',
+    loadChildren: 'src/app/event/event.module#EventModule',
+  },
+  {
     path: 'login',
     component: LoginComponent,
   },
