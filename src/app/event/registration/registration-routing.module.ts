@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { RegistrationContainerComponent } from './registration-container/registration-container.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: 'src/app/event/calendar/calendar.module#CalendarModule'
-  },
-  {
-    path: 'registration',
-    loadChildren: 'src/app/event/registration/registration.module#RegistrationModule'
+    component: RegistrationContainerComponent
   }
 ];
 
@@ -16,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class EventRoutingModule { }
+export class RegistrationRoutingModule { }
