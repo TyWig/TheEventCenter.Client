@@ -6,7 +6,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 const routes: Routes = [
   {
     path: '',
-    loadChildren: 'src/app/landing/landing.module#LandingModule',
+    loadChildren: 'src/app/home/home.module#HomeModule',
+  },
+  {
+    path: 'admin',
+    loadChildren: 'src/app/admin/admin.module#AdminModule'
   },
   {
     path: 'register',

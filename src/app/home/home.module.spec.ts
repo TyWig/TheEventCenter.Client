@@ -1,10 +1,10 @@
-import { LandingModule } from './landing.module';
+import { HomeModule } from './home.module';
 
 describe('LandingModule', () => {
-  let landingModule: LandingModule;
+  let landingModule: HomeModule;
 
   beforeEach(() => {
-    landingModule = new LandingModule();
+    landingModule = new HomeModule();
   });
 
   it('should create an instance', () => {

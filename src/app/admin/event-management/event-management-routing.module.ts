@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LandingContainerComponent } from './landing-container/landing-container.component';
+import { EventManagementContainerComponent } from './event-management-container/event-management-container.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LandingContainerComponent
+    component: EventManagementContainerComponent
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class LandingRoutingModule { }
+export class EventManagementRoutingModule { }
