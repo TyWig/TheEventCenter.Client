@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'event-management',
-    loadChildren: 'src/app/admin/event-management.module#EventManagementModule'
+    loadChildren: 'src/app/admin/event-management/event-management.module#EventManagementModule'
   }
 ];
 

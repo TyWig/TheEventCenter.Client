@@ -1,3 +1,12 @@
-<p>
-  landing works!
-</p>
+<div class="mat-elevation-z8">
+  <mat-card style="min-width: 60vh; max-width: 1000px;">
+    <h1>Administration</h1>
+    <mat-card-content>
+      <mat-grid-list [cols]="2" rowHeight="60px" class="admin-grid-menu">
+        <mat-grid-tile *ngFor="let button of buttons">
+          <button mat-raised-button class="admin-button" routerLink="{{button.link}}" color="primary"><mat-icon>{{button.icon}}</mat-icon>{{button.title}}</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+  </mat-card>
+</div>
