@@ -1,3 +1,6 @@
+<div class="text-center mb-2">
+  <h2>{{ viewDate | calendarDate:(calendarView + 'ViewTitle'):'en' }}</h2>
+</div>
 <mwl-calendar-month-view
     [viewDate]="viewDate"
     [events]="events"
@@ -7,3 +10,30 @@
     (eventClicked)="handleEvent('Clicked', $event.event)"
     (eventTimesChanged)="eventTimesChanged($event)">
   </mwl-calendar-month-view>
+  <div class="row text-center mt-3">
+    <div class="col-md-12">
+      <button mat-icon-button
+              color="primary"
+              mwlCalendarPreviousView 
+              [(viewDate)]="viewDate" 
+              [view]="calendarView"
+              class="mr-2"> 
+              <mat-icon>arrow_back</mat-icon>
+      </button>
+      <button mat-raised-button
+              color="primary"
+              mwlCalendarToday
+              [(viewDate)]="viewDate">
+              Today
+      </button>
+      <button mat-icon-button 
+              color="primary"
+              mwlCalendarNextView 
+              [(viewDate)]="viewDate" 
+              [view]="calendarView"
+              class="ml-2">
+              <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </div>
+  
+  </div>

@@ -5,7 +5,7 @@ import { CalendarRoutingModule } from './calendar-routing.module';
 import { CalendarContainerComponent } from './calendar-container/calendar-container.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { MaterialModule } from 'src/app/shared/material.module';
-import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { CalendarModule, DateAdapter, CalendarCommonModule } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
@@ -16,7 +16,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
-    })
+    }),
+    CalendarCommonModule
   ],
   declarations: [CalendarContainerComponent, CalendarComponent]
 })
