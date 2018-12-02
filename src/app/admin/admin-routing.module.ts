@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: 'event-management',
     loadChildren: 'src/app/admin/event-management/event-management.module#EventManagementModule'
+  },
+  {
+    path: 'user-management',
+    loadChildren: 'src/app/admin/user-management/user-management.module#UserManagementModule'
   }
 ];
 

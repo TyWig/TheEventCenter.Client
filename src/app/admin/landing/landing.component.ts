@@ -14,7 +14,7 @@ export class LandingComponent implements OnInit {
     },
     {
       title: 'Manage Admin',
-      link: '/admin/event-management',
+      link: '/admin/user-management',
       icon: 'event_available'
     },
   ];
