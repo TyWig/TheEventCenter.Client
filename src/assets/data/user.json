@@ -1,0 +1,26 @@
+[
+  {
+    "firstName": "Tyler",
+    "lastName": "Wigington",
+    "email": "tylerwigington@boisestate.edu",
+    "isAdmin": true
+  },
+  {
+    "firstName": "Chad",
+    "lastName": "Wigington",
+    "email": "chadwigington@boisestate.edu",
+    "isAdmin": false
+  },
+  {
+    "firstName": "Ashlin",
+    "lastName": "Wigington",
+    "email": "ashlinwigington@boisestate.edu",
+    "isAdmin": false
+  },
+  {
+    "firstName": "Traci",
+    "lastName": "Wigington",
+    "email": "traciwigington@boisestate.edu",
+    "isAdmin": true
+  }
+]

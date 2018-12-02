@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { FormBuilder, Form, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { validateAllFormFields } from 'src/app/shared/form-utils';
 
 @Component({
   selector: 'app-user-management-modal',
@@ -12,6 +14,8 @@ export class UserManagementModalComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    public dialogRef: MatDialogRef<UserManagementModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) { 
     this.initForm();
   }
@@ -25,8 +29,21 @@ export class UserManagementModalComponent implements OnInit {
       'firstName': ['', Validators.required],
       'lastName': ['', Validators.required],
       'email': ['', [Validators.required, Validators.email]],
-      'isAdmin': ['', Validators.required]
+      'isAdmin': [false]
     });
+  }
+
+  cancel() {
+    this.dialogRef.close();
+  }
+
+  add() {
+    const valid = this.form.valid;
+    if(valid) {
+      this.dialogRef.close(this.form.value);
+    } else {
+      validateAllFormFields(this.form);
+    }
   }
 
 }
