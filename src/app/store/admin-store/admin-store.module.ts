@@ -9,8 +9,8 @@ import { AdminStoreEffects } from './admin-store.effects';
   imports: [
     CommonModule,
     StoreModule.forFeature('admin', adminStore.reducer),
-    EffectsModule.forFeature([AdminStoreEffects])
+    EffectsModule.forFeature([AdminStoreEffects]),
   ],
-  declarations: []
+  declarations: [],
 })
 export class AdminStoreModule { }

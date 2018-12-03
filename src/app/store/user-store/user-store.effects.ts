@@ -24,10 +24,10 @@ export class UserStoreEffects {
   loadUser$ = this.actions$.pipe(
     ofType(UserActionTypes.LOAD_USER),
     switchMap((action: LoadUser) =>
-      this.http.get(env.baseApiUrl + '/user/profile').pipe(
-        map(result => ({type: UserActionTypes.LOAD_USER_SUCCESS, payload: result})),
-        catchError(err => of(new LoadUserFail(err)))
-      )
-    )
+      this.http.get(`${env.baseApiUrl}/user/profile`).pipe(
+        map(result => ({ type: UserActionTypes.LOAD_USER_SUCCESS, payload: result })),
+        catchError(err => of(new LoadUserFail(err))),
+      ),
+    ),
   );
 }
