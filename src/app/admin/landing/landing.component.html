@@ -4,7 +4,7 @@
     <mat-card-content>
       <mat-grid-list [cols]="2" rowHeight="60px" class="admin-grid-menu">
         <mat-grid-tile *ngFor="let button of buttons">
-          <button mat-raised-button class="admin-button" routerLink="{{button.link}}" color="primary"><mat-icon>{{button.icon}}</mat-icon>{{button.title}}</button>
+          <button mat-raised-button class="admin-button" routerLink="{{button.link}}" color="primary"><mat-icon class="mr-2">{{button.icon}}</mat-icon> {{button.title}}</button>
         </mat-grid-tile>
       </mat-grid-list>
     </mat-card-content>

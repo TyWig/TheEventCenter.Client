@@ -6,12 +6,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../environments/environment';
 import { UserStoreModule } from './user-store';
 import { AuthStoreModule } from './auth-store';
+import { AdminStoreModule } from './admin-store';
 
 @NgModule({
   imports: [
     CommonModule,
     UserStoreModule,
     AuthStoreModule,
+    AdminStoreModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
@@ -19,6 +21,6 @@ import { AuthStoreModule } from './auth-store';
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
   ],
-  declarations: []
+  declarations: [],
 })
 export class RootStoreModule { }

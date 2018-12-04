@@ -10,14 +10,14 @@ export interface RegistrationModalData {
 @Component({
   selector: 'app-registration-modal',
   templateUrl: './registration-modal.component.html',
-  styleUrls: ['./registration-modal.component.css']
+  styleUrls: ['./registration-modal.component.css'],
 })
 export class RegistrationModalComponent implements OnInit {
   myData: RegistrationModalData;
 
   constructor(
     public dialogRef: MatDialogRef<RegistrationModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: RegistrationModalData
+    @Inject(MAT_DIALOG_DATA) public data: RegistrationModalData,
   ) {
     this.myData = this.data;
   }

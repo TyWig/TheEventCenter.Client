@@ -26,16 +26,16 @@ import { CoreModule } from './core/core.module';
     CoreModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
-      useFactory: adapterFactory
-    })
+      useFactory: adapterFactory,
+    }),
   ],
   declarations: [
     AppComponent,
     LoginComponent,
     UnauthorizedComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

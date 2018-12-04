@@ -7,8 +7,8 @@ import { EventManagementContainerComponent } from './event-management-container/
 @NgModule({
   imports: [
     CommonModule,
-    EventManagementRoutingModule
+    EventManagementRoutingModule,
   ],
-  declarations: [EventManagementContainerComponent]
+  declarations: [EventManagementContainerComponent],
 })
 export class EventManagementModule { }

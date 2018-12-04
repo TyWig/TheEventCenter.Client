@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { UserManagementModalComponent } from '../user-management-modal/user-management-modal.component';
 import { Store } from '@ngrx/store';
-import { LoadAdminUsers } from 'src/app/store/admin-store/admin-store.actions';
+import { LoadAdminUsers, AddAdminUser, DeleteAdminUser } from 'src/app/store/admin-store/admin-store.actions';
 import { Observable } from 'rxjs';
 import { adminSelectors } from 'src/app/store/admin-store';
+import { ConfirmationComponent } from 'src/app/shared/confirmation/confirmation.component';
 
 @Component({
   selector: 'app-user-management-container',
@@ -26,12 +27,36 @@ export class UserManagementContainerComponent implements OnInit {
   }
 
   addUser(userToEdit: any) {
-    const dialogRef = this.dialog.open(UserManagementModalComponent, {
-      data: userToEdit,
+    const dialogRef = this.dialog.open(UserManagementModalComponent);
+    dialogRef.afterClosed().subscribe((value) => {
+      if (value) {
+        this.store.dispatch(new AddAdminUser(value));
+      }
+    });
+  }
+
+  deleteUser(userEmail) {
+    const dialogRef = this.dialog.open(ConfirmationComponent, {
+      data: { title: 'Are you sure you want to delete this user?' },
+    });
+    dialogRef.afterClosed().subscribe((saidYes) => {
+      if (saidYes) {
+        this.store.dispatch(new DeleteAdminUser(userEmail));
+      }
     });
 
-    dialogRef.afterClosed().subscribe((value) => {
-      console.log(value);
+  }
+
+  editUser(user) {
+    const dialogRef = this.dialog.open(UserManagementModalComponent, {
+      data: user,
+    });
+
+    dialogRef.afterClosed().subscribe((updatedUser) => {
+      if (updatedUser) {
+        console.log(updatedUser);
+        // this.store.dispatch(new UpdateAdminUser(updatedUser));
+      }
     });
   }
 

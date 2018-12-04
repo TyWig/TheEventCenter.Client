@@ -21,7 +21,10 @@ export class UserManagementModalComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    if (this.data) {
+      this.form.patchValue(this.data);
+      this.form.updateValueAndValidity();
+    }
   }
 
   private initForm() {
