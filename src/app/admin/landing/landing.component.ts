@@ -19,7 +19,7 @@ export class LandingComponent implements OnInit {
     },
     {
       title: 'Content Management',
-      link: '/admin/user-management',
+      link: '/admin/content-management',
       icon: 'build',
     },
   ];

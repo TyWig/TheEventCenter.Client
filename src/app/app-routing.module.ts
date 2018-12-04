@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: 'src/app/admin/admin.module#AdminModule'
+    loadChildren: 'src/app/admin/admin.module#AdminModule',
   },
   {
     path: 'register',
@@ -28,17 +28,17 @@ const routes: Routes = [
     path: 'page-not-found',
     component: PageNotFoundComponent,
     data: {
-      title: '404: Page Not Found'
-    }
+      title: '404: Page Not Found',
+    },
   },
   {
     path: '**',
-    redirectTo: 'page-not-found'
-  }
+    redirectTo: 'page-not-found',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -9,8 +9,8 @@ import { MaterialModule } from '../shared/material.module';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    MaterialModule
+    MaterialModule,
   ],
-  declarations: [LandingComponent]
+  declarations: [LandingComponent],
 })
 export class AdminModule { }
