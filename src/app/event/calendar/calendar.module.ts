@@ -7,6 +7,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { MaterialModule } from 'src/app/shared/material.module';
 import { CalendarModule, DateAdapter, CalendarCommonModule } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { RegistrationModalComponent } from './registration-modal/registration-modal.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     }),
     CalendarCommonModule
   ],
-  declarations: [CalendarContainerComponent, CalendarComponent]
+  declarations: [CalendarContainerComponent, CalendarComponent, RegistrationModalComponent],
+  entryComponents: [RegistrationModalComponent]
 })
 export class AppCalendarModule { }

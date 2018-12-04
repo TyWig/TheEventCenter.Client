@@ -3,7 +3,6 @@ import { UserActionTypes, UserStoreActions } from './user-store.actions';
 import { initialState, State } from './state';
 
 export function reducer(state = initialState, action: UserStoreActions): State {
-  console.log(state, action);
   switch (action.type) {
 
     case UserActionTypes.LOAD_USER:

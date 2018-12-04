@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {
   CalendarView,
   CalendarEvent,
@@ -38,6 +38,7 @@ const colors: any = {
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
+  @Output() dateClicked: EventEmitter<any> = new EventEmitter<any>();
   calendarView: CalendarView = CalendarView.Month;
   viewDate: Date = new Date();
   actions: CalendarEventAction[] = [
@@ -45,7 +46,8 @@ export class CalendarComponent implements OnInit {
       label: '<i class="fa fa-fw fa-pencil"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
         this.handleEvent('Edited', event);
-      }
+      },
+      
     },
     {
       label: '<i class="fa fa-fw fa-times"></i>',
@@ -56,19 +58,19 @@ export class CalendarComponent implements OnInit {
     }
   ];
   events: CalendarEvent[] = [
-    // {
-    //   start: subDays(startOfDay(new Date()), 1),
-    //   end: addDays(new Date(), 1),
-    //   title: 'A 3 day event',
-    //   color: colors.red,
-    //   actions: this.actions,
-    //   allDay: true,
-    //   resizable: {
-    //     beforeStart: true,
-    //     afterEnd: true
-    //   },
-    //   draggable: true
-    // },
+    {
+      start: subDays(startOfDay(new Date()), 1),
+      end: addDays(new Date(), 1),
+      title: 'A 3 day event',
+      color: colors.red,
+      actions: this.actions,
+      allDay: true,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true
+      },
+      draggable: true
+    },
     // {
     //   start: startOfDay(new Date()),
     //   title: 'An event with no end date',
@@ -115,7 +117,7 @@ export class CalendarComponent implements OnInit {
   }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-    console.log(date, events);
+    this.dateClicked.emit({date, events});
     // if (isSameMonth(date, this.viewDate)) {
     //   this.viewDate = date;
     //   if (
