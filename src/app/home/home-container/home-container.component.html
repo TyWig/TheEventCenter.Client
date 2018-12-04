@@ -1,4 +1,11 @@
-<mat-card class="landing-card mb-3" *ngFor="let item of [1,2,3]">
+<mat-card class="slideshow-card">
+  <slideshow [minHeight]="'525px'" [imageUrls]="imageUrlsArray"></slideshow>
+  <div>
+    <p>Something about text boiii</p>
+  </div>
+</mat-card>
+
+<!-- <mat-card class="landing-card mb-3" *ngFor="let item of [1,2,3]">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>Shiba Inu</mat-card-title>
@@ -16,4 +23,4 @@
     <button mat-raised-button color="primary">LIKE</button>
     <button mat-raised-button>SHARE</button>
   </mat-card-actions>
-</mat-card>
+</mat-card> -->

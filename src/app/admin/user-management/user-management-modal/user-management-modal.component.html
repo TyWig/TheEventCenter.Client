@@ -1,0 +1,30 @@
+<h1>{{userToEdit ? 'Edit User' : 'Add User'}}</h1>
+<form [formGroup]="form" class="mb-3" style="width: 500px">
+  <div class="row">
+    <mat-form-field class="col-md-6">
+      <input matInput placeholder="First Name" formControlName="firstName" autocomplete="cc-given-name">
+      <mat-error *ngIf="form.controls['firstName'].hasError('required')">
+        First Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-md-6">
+      <input matInput placeholder="Last Name" formControlName="lastName" autocomplete="cc-given-name">
+      <mat-error *ngIf="form.controls['lastName'].hasError('required')">
+        Last Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-md-12">
+      <input matInput placeholder="Email" formControlName="email" autocomplete="email username">
+      <mat-error *ngIf="form.controls['email'].hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <div class="col-md-6">
+      <mat-checkbox id="isAdmin" color="primary" formControlName="isAdmin" [checked]="isAdmin === true" value="true" required>Is Admin?</mat-checkbox>
+    </div>
+  </div>
+</form>
+<div style="float: right" class="mt-3">
+  <button mat-raised-button color="warn" (click)="cancel()" class="mr-2" style="min-width: 100px">Cancel</button>
+  <button mat-raised-button color="primary" (click)="add()" style="min-width: 100px">Add</button>
+</div>
