@@ -5,7 +5,7 @@ import {
   Login,
   LoginFail,
   Register,
-  RegisterFail
+  RegisterFail,
 } from './auth-store.actions';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/core/auth/auth.service';
@@ -25,35 +25,34 @@ export class AuthStoreEffects {
   ) {
   }
 
-
   @Effect()
   login$ = this.actions$.pipe(
     ofType(AuthStoreActionTypes.LOGIN),
     switchMap((action: Login) =>
-      this.http.post(env.baseApiUrl + '/auth/login', action.payload).pipe(
-        map(result => ({type: AuthStoreActionTypes.LOGIN_SUCCESS, payload: result})),
-        tap(result => {
+      this.http.post(`${env.baseApiUrl}/auth/login`, action.payload).pipe(
+        map(result => ({ type: AuthStoreActionTypes.LOGIN_SUCCESS, payload: result })),
+        tap((result) => {
           this.authService.login(result.payload);
           this.router.navigate(['landing']);
         }),
-        catchError(err => of(new LoginFail(err.error.response)))
-      )
-    )
+        catchError(err => of(new LoginFail(err.error.response))),
+      ),
+    ),
   );
 
   @Effect()
   register$ = this.actions$.pipe(
     ofType(AuthStoreActionTypes.REGISTER),
     switchMap((action: Register) =>
-      this.http.post(env.baseApiUrl + '/auth/register', action.payload).pipe(
-        map(result => ({type: AuthStoreActionTypes.REGISTER_SUCCESS, payload: result})),
-        tap(result => {
+      this.http.post(`${env.baseApiUrl}/auth/register`, action.payload).pipe(
+        map(result => ({ type: AuthStoreActionTypes.REGISTER_SUCCESS, payload: result })),
+        tap((result) => {
           this.authService.login(result.payload);
           this.router.navigate(['login']);
         }),
-        catchError(err => of(new RegisterFail(err.error.response)))
-      )
-    )
+        catchError(err => of(new RegisterFail(err.error.response))),
+      ),
+    ),
   );
 
 }

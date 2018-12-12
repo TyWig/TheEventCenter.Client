@@ -10,8 +10,8 @@ import { CoreModule } from 'src/app/core/core.module';
   imports: [
     CommonModule,
     StoreModule.forFeature('user', fromUserStore.reducer),
-    EffectsModule.forFeature([UserStoreEffects])
+    EffectsModule.forFeature([UserStoreEffects]),
   ],
-  declarations: []
+  declarations: [],
 })
 export class UserStoreModule { }

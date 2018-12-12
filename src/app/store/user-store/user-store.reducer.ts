@@ -7,7 +7,7 @@ export function reducer(state = initialState, action: UserStoreActions): State {
 
     case UserActionTypes.LOAD_USER:
       return {
-        ...state
+        ...state,
       };
     case UserActionTypes.LOAD_USER_SUCCESS:
       return {

@@ -29,17 +29,15 @@
 
     <!-- Main Content -->
     <main role="main" class="main-content">
-      <h1>The Clubhouse Event Center</h1>
       <div class="container">
-        <div class="row justify-content-center">
-          <router-outlet #o="outlet"></router-outlet>
-        </div>
+        <!-- <h1>The Clubhouse Event Center</h1> -->
+        <router-outlet #o="outlet"></router-outlet>
       </div>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-      <mat-toolbar color="primary">
+      <mat-toolbar color="primary" style="height: 40px;">
           <span>&#169; {{today | date:'yyyy'}} The Event Center </span>
       </mat-toolbar>
     </footer>
