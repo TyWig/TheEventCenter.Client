@@ -28,6 +28,8 @@ export function reducer(state = initialState, action: AuthStoreActions): State {
     case AuthStoreActionTypes.REGISTER_SUCCESS:
       return {
         ...state,
+        isAuthenticated: true,
+        isAdmin: false,
       };
     case AuthStoreActionTypes.REGISTER_FAIL:
       return {

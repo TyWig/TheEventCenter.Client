@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 import { switchMap, map, tap, catchError } from 'rxjs/operators';
 import { environment as env } from '../../../environments/environment';
 import { of } from 'rxjs';
+import { LoginResponse } from 'src/app/shared/models/login-response';
 
 @Injectable()
 export class AuthStoreEffects {
@@ -32,8 +33,8 @@ export class AuthStoreEffects {
       this.http.post(`${env.baseApiUrl}/auth/login`, action.payload).pipe(
         map(result => ({ type: AuthStoreActionTypes.LOGIN_SUCCESS, payload: result })),
         tap((result) => {
-          this.authService.login(result.payload);
-          this.router.navigate(['landing']);
+          this.authService.setAuthResponse(result.payload as LoginResponse);
+          this.router.navigate(['/']);
         }),
         catchError(err => of(new LoginFail(err.error.response))),
       ),
@@ -47,7 +48,7 @@ export class AuthStoreEffects {
       this.http.post(`${env.baseApiUrl}/auth/register`, action.payload).pipe(
         map(result => ({ type: AuthStoreActionTypes.REGISTER_SUCCESS, payload: result })),
         tap((result) => {
-          this.authService.login(result.payload);
+          this.authService.setAuthResponse(result.payload as LoginResponse);
           this.router.navigate(['login']);
         }),
         catchError(err => of(new RegisterFail(err.error.response))),

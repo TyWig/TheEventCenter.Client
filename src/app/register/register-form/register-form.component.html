@@ -1,5 +1,5 @@
-<form [formGroup]="form">
-  <div class="row">
+<div class="row justify-content-center">
+  <form [formGroup]="form">
     <mat-form-field class="col-md-12">
       <input matInput placeholder="Email" formControlName="email" autocomplete="email">
       <mat-error *ngIf="form.controls['email'].hasError('required')">
@@ -39,5 +39,5 @@
         Password is <strong>required</strong>
       </mat-error>
     </mat-form-field>
-  </div>
-</form>
+  </form>
+</div>

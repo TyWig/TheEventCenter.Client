@@ -2,13 +2,15 @@ import { Action } from '@ngrx/store';
 import { LoginResponse } from 'src/app/shared/models/login-response';
 
 export enum AuthStoreActionTypes {
-  LOGIN = '[User] Login',
-  LOGIN_SUCCESS = '[User] Login Success',
-  LOGIN_FAIL = '[User] Login Fail',
+  LOGIN = '[Auth] Login',
+  LOGIN_SUCCESS = '[Auth] Login Success',
+  LOGIN_FAIL = '[Auth] Login Fail',
 
-  REGISTER = '[User] Register',
-  REGISTER_SUCCESS = '[User] Register Success',
-  REGISTER_FAIL = '[User] Register Fail',
+  REGISTER = '[Auth] Register',
+  REGISTER_SUCCESS = '[Auth] Register Success',
+  REGISTER_FAIL = '[Auth] Register Fail',
+
+  AUTH_RESET = '[Auth] Auth Reset',
 }
 
 export class Login implements Action {
@@ -37,9 +39,15 @@ export class RegisterSuccess implements Action {
   constructor(public payload: LoginResponse) { }
 }
 
+export class AuthReset implements Action {
+  readonly type = AuthStoreActionTypes.AUTH_RESET;
+  constructor() { }
+}
+
 export type AuthStoreActions = Login
 | LoginFail
 | LoginSuccess
 | Register
 | RegisterSuccess
-| RegisterFail;
+| RegisterFail
+| AuthReset;

@@ -12,11 +12,18 @@ export function reducer(state = initialState, action: UserStoreActions): State {
     case UserActionTypes.LOAD_USER_SUCCESS:
       return {
         ...state,
+        ...action.payload,
       };
     case UserActionTypes.LOAD_USER_FAIL:
       return {
         ...state,
       };
+    case UserActionTypes.USER_RESET: {
+      return {
+        ...state,
+        user: null,
+      };
+    }
     default:
       return state;
   }

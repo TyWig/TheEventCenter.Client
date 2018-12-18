@@ -11,6 +11,9 @@ import { catchError } from 'rxjs/operators';
 import { Observable, of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthService } from './auth/auth.service';
+import { Store } from '@ngrx/store';
+import { AuthReset } from '../store/auth-store/auth-store.actions';
+import { UserReset } from '../store/user-store/user-store.actions';
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
@@ -18,6 +21,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     private snackbar: MatSnackBar,
     private authService: AuthService,
     private router: Router,
+    private store: Store<any>,
   ) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -25,6 +29,8 @@ export class HttpErrorInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         switch (error.status) {
           case 401:
+            this.store.dispatch(new AuthReset());
+            this.store.dispatch(new UserReset());
             this.router.navigate(['login']);
             break;
           case 403:
@@ -35,7 +41,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
             break;
           default:
             this.showSnackbar(error);
-            console.error('Error: ', error);
         }
         return throwError(error);
       }),
