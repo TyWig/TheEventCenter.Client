@@ -10,6 +10,10 @@ export enum AuthStoreActionTypes {
   REGISTER_SUCCESS = '[Auth] Register Success',
   REGISTER_FAIL = '[Auth] Register Fail',
 
+  LOGOUT = '[Auth] Logout',
+  LOGOUT_SUCCESS = '[Auth] Logout Success',
+  LOGOUT_FAIL = '[Auth] Logout Fail',
+
   AUTH_RESET = '[Auth] Auth Reset',
 }
 
@@ -23,6 +27,19 @@ export class LoginFail implements Action {
 }
 export class LoginSuccess implements Action {
   readonly type = AuthStoreActionTypes.LOGIN_SUCCESS;
+  constructor(public payload: LoginResponse) { }
+}
+
+export class Logout implements Action {
+  readonly type = AuthStoreActionTypes.LOGOUT;
+  constructor() { }
+}
+export class LogoutFail implements Action {
+  readonly type = AuthStoreActionTypes.LOGOUT_FAIL;
+  constructor(public payload: any) { }
+}
+export class LogoutSuccess implements Action {
+  readonly type = AuthStoreActionTypes.LOGOUT_SUCCESS;
   constructor(public payload: LoginResponse) { }
 }
 
@@ -50,4 +67,7 @@ export type AuthStoreActions = Login
 | Register
 | RegisterSuccess
 | RegisterFail
+| Logout
+| LogoutSuccess
+| LogoutFail
 | AuthReset;

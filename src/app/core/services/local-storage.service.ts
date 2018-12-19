@@ -17,6 +17,10 @@ export class LocalStorageService {
     window.localStorage.setItem(`${env.localStoragePrefix}-${key}`, JSON.stringify(value));
   }
 
+  removeItem(key: string): any {
+    window.localStorage.removeItem(`${env.localStoragePrefix}-${key}`);
+  }
+
   getItem(key: string): any {
     const stringValue = window.localStorage.getItem(`${env.localStoragePrefix}-${key}`);
     return JSON.parse(stringValue);

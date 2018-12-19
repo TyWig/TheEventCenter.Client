@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { LoginResponse } from 'src/app/shared/models/login-response';
+import { User } from 'src/app/shared/models/user';
 
 export enum UserActionTypes {
   LOAD_USER = '[User] Load User',
@@ -19,7 +19,7 @@ export class LoadUserFail implements Action {
 }
 export class LoadUserSuccess implements Action {
   readonly type = UserActionTypes.LOAD_USER_SUCCESS;
-  constructor(public payload: LoginResponse) { }
+  constructor(public payload: User) { }
 }
 
 export class UserReset implements Action {

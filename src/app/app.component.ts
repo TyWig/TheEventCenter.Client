@@ -6,6 +6,9 @@ import { AuthService } from './core/auth/auth.service';
 import { authSelectors } from './store/auth-store';
 import { LoadUser } from './store/user-store/user-store.actions';
 import { User } from './shared/models/user';
+import { Logout } from './store/auth-store/auth-store.actions';
+import { MatDialog, DialogPosition } from '@angular/material';
+import { ConfirmationComponent } from './shared/confirmation/confirmation.component';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +24,7 @@ export class AppComponent implements OnInit {
   constructor(
     private store: Store<any>,
     private authService: AuthService,
+    private modal: MatDialog,
   ) {
     this.initAuth();
     this.subscribeToAuthenticated();
@@ -28,6 +32,22 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.currentUser$ = this.store.select(userSelectors.selectUser);
+  }
+
+  logout() {
+    const dialogPosition: DialogPosition = {
+      top: '0',
+    };
+    const modalRef = this.modal.open(ConfirmationComponent, {
+      data: { title: 'Are you sure you want to logout?' },
+      position: dialogPosition,
+    });
+
+    modalRef.afterClosed().subscribe((response) => {
+      if (response) {
+        this.store.dispatch(new Logout());
+      }
+    });
   }
 
   private initAuth() {

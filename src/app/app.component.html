@@ -1,7 +1,9 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="cover" style="background: rgba(255,255,255,0.95);">
     <mat-toolbar color="primary">
-      <span>Welcome, {{(userState$ | async)?.name}}</span>
+      <span *ngIf="currentUser$ | async as currentUser">
+        Welcome, {{currentUser.firstName}} {{currentUser.lastName}}
+      </span>
     </mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/login">Login</a>
@@ -20,11 +22,11 @@
           <button class="d-none d-md-block" mat-button routerLink="/admin">Admin</button>
         </div>
         <span class="flex-fill-space"></span>
-        <div *ngIf="!(currentUser$ | async); else authUserMenu">
+        <div *ngIf="!(currentUser$ | async)">
           <button class="d-none d-md-block" mat-button routerLink="/login">Login</button>
         </div>
-        <ng-template #authUserMenu>
-          <div *ngIf="currentUser$ | async as currentUser">
+        <!-- <ng-template #authUserMenu> -->
+          <div *ngIf="currentUser$ | async as currentUser" class="d-none d-md-block">
             <button mat-button [matMenuTriggerFor]="userMenu">
               {{currentUser.firstName + ' ' + currentUser.lastName}}
               <mat-icon>arrow_drop_down</mat-icon>
@@ -32,9 +34,10 @@
             <mat-menu #userMenu="matMenu">
               <button mat-menu-item>Settings</button>
               <button mat-menu-item>Help</button>
+              <button mat-menu-item (click)="logout()">Logout</button>
             </mat-menu>
           </div>
-        </ng-template>
+        <!-- </ng-template> -->
 
         <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
           <mat-icon>menu</mat-icon>

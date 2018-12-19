@@ -6,11 +6,12 @@ import { LocalStorageService } from './services/local-storage.service';
 import { AuthService } from './auth/auth.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './http-error.intercepter';
+import { TokenService } from './auth/token.service';
 
-export function jwtOptionsFactory(authService) {
+export function jwtOptionsFactory(tokenService: TokenService) {
   return {
     tokenGetter: () => {
-      return authService.getToken();
+      return tokenService.getToken();
     },
     whitelistedDomains: ['localhost:5000', 'localhost:5001'],
     blacklistedRoutes: ['localhost:5000/api/auth/login'],
@@ -24,13 +25,14 @@ export function jwtOptionsFactory(authService) {
       jwtOptionsProvider: {
         provide: JWT_OPTIONS,
         useFactory: jwtOptionsFactory,
-        deps: [AuthService],
+        deps: [TokenService],
       },
     }),
   ],
   providers: [
     AuthService,
     LocalStorageService,
+    TokenService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
   ],
 })

@@ -21,6 +21,21 @@ export function reducer(state = initialState, action: AuthStoreActions): State {
         loginErrors: action.payload,
       };
 
+    case AuthStoreActionTypes.LOGOUT:
+      return {
+        ...state,
+      };
+    case AuthStoreActionTypes.LOGOUT_SUCCESS:
+      return {
+        ...state,
+        isAuthenticated: false,
+        isAdmin: false,
+      };
+    case AuthStoreActionTypes.LOGOUT_FAIL:
+      return {
+        ...state,
+      };
+
     case AuthStoreActionTypes.REGISTER:
       return {
         ...state,
